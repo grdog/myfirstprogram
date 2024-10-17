@@ -7,4 +7,7 @@ public class Account {
     private UUID id;
     private String loginName;
     private String password;
+    public UUID getId() {
+        return id;
+    }
 }
