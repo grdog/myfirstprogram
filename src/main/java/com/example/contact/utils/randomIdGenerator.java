@@ -24,9 +24,12 @@ public class randomIdGenerator {
         return instance;
     }
     public Long generateId(){
-        SecureRandom random = new SecureRandom();
-        long id=random.nextLong();
-        return id;
+        SecureRandom secureRandom = new SecureRandom();
+        long rangeStart = 1000000000L;
+        long rangeEnd = 9999999999L; // 最大的10位数
+        long rangeSize = rangeEnd - rangeStart + 1;
+        long id = rangeStart + (secureRandom.nextLong() & Long.MAX_VALUE) % rangeSize;
+        return Long.valueOf(id);
     }
 
 
